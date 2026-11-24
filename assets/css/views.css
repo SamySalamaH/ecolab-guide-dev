@@ -1238,3 +1238,120 @@
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
+
+/* ==========================================================================
+   دروس تدريبية تفاعلية (قسم التعليم) — lessons.js
+   ========================================================================== */
+.lessons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+.lessons__title {
+  font-size: calc(var(--text-lg) * var(--font-scale));
+  color: var(--content-primary);
+}
+.lessons__notice {
+  border-inline-start: 4px solid var(--status-warning);
+  background: var(--surface-raised);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: calc(var(--text-sm) * var(--font-scale));
+  color: var(--content-secondary);
+  line-height: 1.7;
+}
+.lessons__progress,
+.lesson-best {
+  font-size: calc(var(--text-sm) * var(--font-scale));
+  color: var(--content-muted);
+}
+.lesson-h {
+  font-size: calc(var(--text-base) * var(--font-scale));
+  color: var(--brand-primary);
+  margin-top: var(--space-2);
+}
+.lesson-p,
+.lesson-list {
+  font-size: calc(var(--text-sm) * var(--font-scale));
+  color: var(--content-secondary);
+  line-height: 1.8;
+}
+.lesson-list {
+  padding-inline-start: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.lesson-q {
+  font-weight: 700;
+  color: var(--content-primary);
+  font-size: calc(var(--text-sm) * var(--font-scale));
+  margin: var(--space-3) 0 var(--space-2);
+}
+.lesson-opts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.lesson-opt {
+  font: inherit;
+  text-align: start;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: var(--border-width-thin) solid var(--border-strong);
+  background: var(--surface-card);
+  color: var(--content-primary);
+  line-height: 1.6;
+  cursor: pointer;
+}
+.lesson-opt:disabled { cursor: default; }
+.lesson-opt--correct {
+  border-color: var(--status-safe);
+  border-width: var(--border-width-thick);
+}
+.lesson-opt--wrong {
+  border-color: var(--status-danger);
+  border-width: var(--border-width-thick);
+}
+.lesson-opt--dim { opacity: 0.6; }
+.lesson-feedback {
+  font-size: calc(var(--text-sm) * var(--font-scale));
+  color: var(--content-secondary);
+  line-height: 1.7;
+  margin-top: var(--space-2);
+}
+.lesson-score {
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-top: var(--space-3);
+}
+.lesson-retry {
+  font: inherit;
+  align-self: flex-start;
+  min-height: 40px;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  border: var(--border-width-thin) solid var(--border-strong);
+  background: transparent;
+  color: var(--content-primary);
+  cursor: pointer;
+}
+.lessons__teacher {
+  border-top: var(--border-width-thin) solid var(--border-subtle);
+  padding-top: var(--space-3);
+}
+.lesson-qa { margin-top: var(--space-3); }
+.lesson-qa__q {
+  font-weight: 700;
+  color: var(--content-primary);
+  font-size: calc(var(--text-sm) * var(--font-scale));
+}
+.lesson-qa__a {
+  color: var(--content-secondary);
+  font-size: calc(var(--text-sm) * var(--font-scale));
+  line-height: 1.8;
+}
