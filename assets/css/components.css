@@ -1,6 +1,6 @@
 /* ==========================================================================
    COMPONENTS.CSS
-   دليل الاستيوارد — Marriott | مكتبة المكوّنات القابلة لإعادة الاستخدام
+   دليل الاستيوارد | مكتبة المكوّنات القابلة لإعادة الاستخدام
    ==========================================================================
    كل مكوّن هنا:
      • مستقل تماماً عن الصفحة التي يظهر بها (لا افتراضات خاصة بصفحة معيّنة)
@@ -397,12 +397,18 @@
   grid-template-rows: 1fr;
 }
 .card__body-inner {
+  min-height: 0;
   overflow: hidden;
   padding: 0 var(--space-4) var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
   color: var(--content-primary);
+}
+
+.card__body[data-open='false'] > .card__body-inner {
+  padding-bottom: 0;
+  visibility: hidden;
 }
 
 .card__section {
