@@ -1036,8 +1036,28 @@
 }
 .ai-message__actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-1);
   margin-top: var(--space-2);
+}
+/* الأزرار أسفل الفقاعة والفقاعة تأخذ العرض المتاح */
+.ai-message--assistant {
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: 100%;
+}
+.ai-message--assistant .ai-message__avatar { order: 1; }
+.ai-message--assistant .ai-message__bubble {
+  order: 2;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ai-message--assistant .ai-message__actions {
+  order: 3;
+  flex: 0 0 100%;
+  margin-top: 0;
+  padding-inline-start: 40px;
 }
 
 /* -- مؤشر الكتابة (Typing Indicator) -- */
