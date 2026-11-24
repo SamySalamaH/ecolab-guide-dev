@@ -1358,3 +1358,9 @@
 .lessons > :not(.accordion) {
   margin-inline: var(--space-4);
 }
+.lessons > .lessons__title,
+.lessons > .lesson-p,
+.lessons > .lessons__progress,
+.lessons > .lessons__teacher {
+  padding-inline: var(--space-4);
+}
