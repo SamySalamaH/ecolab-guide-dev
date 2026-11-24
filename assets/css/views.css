@@ -1361,6 +1361,24 @@
 .lessons > .lessons__title,
 .lessons > .lesson-p,
 .lessons > .lessons__progress,
-.lessons > .lessons__teacher {
+.lessons > .lessons__teacher,
+.lessons > .lessons__decisions {
   padding-inline: var(--space-4);
+}
+.lessons__decisions {
+  border-top: var(--border-width-thin) solid var(--border-subtle);
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.lesson-decision {
+  margin-top: var(--space-2);
+  border: var(--border-width-thin) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
