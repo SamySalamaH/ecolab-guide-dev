@@ -1355,3 +1355,6 @@
   font-size: calc(var(--text-sm) * var(--font-scale));
   line-height: 1.8;
 }
+.lessons > :not(.accordion) {
+  margin-inline: var(--space-4);
+}
