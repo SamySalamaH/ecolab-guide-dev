@@ -22,7 +22,7 @@
  * بدلاً من الاستمرار في تقديم نسخة قديمة من الكاش للأبد.
  * @type {string}
  */
-const CACHE_VERSION = 'steward-guide-v5';
+const CACHE_VERSION = 'steward-guide-v6';
 
 /** أسماء الكاش المشتقة من رقم الإصدار — كاش واحد لكل شيء لتبسيط الإدارة. */
 const CACHE_NAME = `${CACHE_VERSION}-shell`;
@@ -49,6 +49,7 @@ const APP_SHELL_FILES = [
   './assets/js/dashboard.js',
   './assets/js/chemicals.js',
   './assets/js/education.js',
+  './assets/js/lessons.js',
   './assets/js/safety.js',
   './assets/js/ai.js',
   './assets/js/settings.js',
