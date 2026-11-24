@@ -1,4 +1,4 @@
-# دليل الاستيوارد — Marriott Stewarding Guide
+# دليل الاستيوارد — Personal Stewarding Guide
 
 تطبيق ويب تقدّمي (PWA) ثابت بالكامل (Static) لقسم الـ Stewarding — مرجع
 المواد الكيميائية، أكاديمية سلامة الغذاء (HACCP والقواعد الذهبية)، السلامة
