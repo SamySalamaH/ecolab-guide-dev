@@ -1,6 +1,6 @@
 /* ==========================================================================
    VIEWS.CSS
-   دليل الاستيوارد — Marriott | تخطيطات الصفحات (Views)
+   دليل الاستيوارد | تخطيطات الصفحات (Views)
    ==========================================================================
    هذا الملف مسؤول عن التخطيط الخاص بكل صفحة/عرض من عروض التطبيق الستة:
    لوحة التحكم، المواد الكيميائية، التعليم، السلامة، المساعد الذكي، الإعدادات.
@@ -352,11 +352,17 @@
   grid-template-rows: 1fr;
 }
 .accordion__body-inner {
+  min-height: 0;
   overflow: hidden;
   padding: 0 var(--space-4) var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+}
+
+.accordion__body[data-open='false'] > .accordion__body-inner {
+  padding-bottom: 0;
+  visibility: hidden;
 }
 
 .accordion__divider {
