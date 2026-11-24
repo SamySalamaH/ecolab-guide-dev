@@ -56,7 +56,7 @@ function render() {
 /** يبني لوحة البطل الترحيبية أعلى الصفحة. */
 function buildHeroPanel() {
   return createElement('div', { class: 'hero-panel' }, [
-    createElement('div', { class: 'hero-panel__kicker' }, ['قسم الاستيوارد — Marriott']),
+    createElement('div', { class: 'hero-panel__kicker' }, ['دليل شخصي للاستيوارد']),
     createElement('div', { class: 'hero-panel__title' }, ['دليلك الشامل للتشغيل الآمن']),
     createElement('div', { class: 'hero-panel__desc' }, [
       'مرجع فوري للمواد الكيميائية، إجراءات السلامة، ومساعد ذكي يجيب على أسئلتك التشغيلية — كل ذلك يعمل بدون إنترنت.'
