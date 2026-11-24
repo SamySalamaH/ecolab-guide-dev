@@ -15,6 +15,7 @@ import { educationModules } from './data.js';
 import { getState, markModuleCompleted, unlockAchievement } from './state.js';
 import { createElement, showToast, toggleExpandable } from './utils.js';
 import { registerView } from './router.js';
+import { buildLessonsSection } from './lessons.js';
 
 let rootEl = null;
 
@@ -28,6 +29,7 @@ function init() {
   rootEl.dataset.initialized = 'true';
 
   rootEl.innerHTML = '';
+  rootEl.appendChild(buildLessonsSection());
   const accordion = createElement('div', { class: 'accordion' });
   educationModules.forEach((mod) => accordion.appendChild(buildAccordionItem(mod)));
   rootEl.appendChild(accordion);
