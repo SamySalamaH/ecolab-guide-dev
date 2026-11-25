@@ -1,3 +1,4 @@
+
 let rootEl__education = null;
 function init__education() {
   rootEl__education = document.querySelector('[data-view="education"]');
@@ -718,7 +719,7 @@ function buildAboutGroup() {
     createElement('div', { class: 'settings-row' }, [
       createElement('div', { class: 'settings-row__meta' }, [
         createElement('div', { class: 'settings-row__label' }, ['دليل الاستيوارد']),
-        createElement('div', { class: 'settings-row__desc' }, ['تطبيق ويب تقدّمي (PWA) — يعمل بالكامل بدون إنترنت'])
+        createElement('div', { class: 'settings-row__desc' }, ['نسخة معاينة تجريبية من الدليل — تعمل أثناء الاتصال بالإنترنت'])
       ])
     ])
   ]);
