@@ -1,3 +1,4 @@
+
 let rootEl__ai = null;
 let messagesEl = null;
 let inputEl = null;
@@ -75,7 +76,7 @@ function buildWelcomeCard() {
     ]),
     createElement('div', { class: 'ai-context-badge' }, [
       createElement('span', { 'aria-hidden': 'true' }, ['📡']),
-      'يعمل بالكامل بدون إنترنت'
+      'نسخة معاينة تجريبية — تعمل أثناء الاتصال بالإنترنت'
     ]),
     createElement(
       'div',
