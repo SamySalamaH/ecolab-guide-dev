@@ -616,7 +616,7 @@ function buildHeroPanel() {
     createElement('div', { class: 'hero-panel__kicker' }, ['دليل شخصي للاستيوارد']),
     createElement('div', { class: 'hero-panel__title' }, ['دليلك للتشغيل الآمن']),
     createElement('div', { class: 'hero-panel__desc' }, [
-      'مرجع فوري للمواد الكيميائية وإجراءات السلامة، وإجابات جاهزة للأسئلة التشغيلية الشائعة — كل ذلك يعمل بدون إنترنت.'
+      'مرجع فوري للمواد الكيميائية وإجراءات السلامة، وإجابات جاهزة للأسئلة التشغيلية الشائعة — نسخة معاينة تجريبية تعمل أثناء الاتصال بالإنترنت.'
     ]),
     createElement('div', { class: 'hero-panel__actions' }, [
       createElement('button', { class: 'btn btn--primary', type: 'button', 'data-goto': 'chemicals' }, ['🧪 تصفح المواد']),
