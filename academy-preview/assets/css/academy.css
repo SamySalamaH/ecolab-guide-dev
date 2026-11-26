@@ -65,3 +65,26 @@
   .academy-muted { color: #333; }
 }
 .academy-body { display: flex; flex-direction: column; gap: var(--space-5); }
+
+/* ---- icons (Lucide, bundled locally) ---- */
+.academy-icon { flex: none; vertical-align: -0.2em; }
+.academy-icon--ok { color: var(--academy-pass); }
+.academy-icon--bad { color: var(--academy-fail); }
+.academy-icon--fill { fill: currentColor; }
+.academy-cat__icon { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: var(--radius-lg); background: var(--surface-sunken); color: var(--brand-primary); font-size: 0; }
+.btn .academy-icon { vertical-align: -0.25em; }
+.academy-fav { color: var(--status-warning, var(--brand-primary)); margin-inline-start: var(--space-2); }
+.academy-ctype { display: inline-flex; align-items: center; gap: var(--space-2); align-self: flex-start; margin: 0; padding: 2px var(--space-3); border-radius: var(--radius-full); border: var(--border-width-thin) solid var(--border-subtle); color: var(--content-secondary); font-size: calc(var(--text-sm) * var(--font-scale)); }
+.academy-video__empty { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; color: var(--content-secondary); }
+.academy-video__empty svg { color: var(--brand-primary); }
+.academy-video__empty strong { color: var(--content-primary); }
+.academy-video--empty { aspect-ratio: 16 / 9; min-height: 160px; background: linear-gradient(135deg, var(--surface-sunken), var(--surface-card)); }
+.academy-video__play { display: inline-flex; align-items: center; gap: var(--space-2); }
+.academy-lessonlink { display: inline-flex; align-items: center; gap: var(--space-2); }
+.academy-quiz__review strong { display: flex; align-items: flex-start; gap: var(--space-2); }
+@media (max-width: 480px) {
+  .academy { padding: var(--space-3); gap: var(--space-4); }
+  .academy .btn { min-height: 44px; }
+  .academy-actions { flex-direction: column; align-items: stretch; }
+}
+.academy-link { display: inline-flex; align-items: center; gap: var(--space-2); }
