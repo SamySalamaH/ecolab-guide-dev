@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "courses": [
+  {
+   "id":"c04-food-safety-basics","categoryId":"c04","status":"published","level":"beginner",
+   "title":{"ar":"أساسيات سلامة الغذاء للستيوارد","en":"Food Safety Basics for Stewards"},
+   "description":{"ar":"ثلاثة دروس عملية من مواقف الشغل: التنظيف والتطهير، منع التلوث المتبادل، واستلام وتخزين الخامات. لا تحتوي أي أرقام تشغيلية: كل قيمة مرجعها ملصق المنتج وخطة مكانك المعتمدة.","en":"Three practical lessons: cleaning vs sanitizing, cross-contamination, and receiving and storage. No operating numbers: label and approved site plan are the reference."},
+   "cover":null,
+   "source":{"ar":"محتوى تعليمي مكتوب للدليل، غير معتمد كسياسة تشغيل"},
+   "objectives":{"ar":["تفرّق بين التنظيف والتطهير","تمنع انتقال التلوث من النيّ للجاهز","تفحص الطلبية وتخزنها بالطريقة الصحيحة"]},
+   "lessonIds":["c04-l01","c04-l02","c04-l03"],
+   "quizId":"q-c04-final",
+   "addedAt":"2026-11-26"
+  }
+ ]
+}
