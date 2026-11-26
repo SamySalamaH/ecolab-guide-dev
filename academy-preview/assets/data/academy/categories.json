@@ -1,13 +1,13 @@
 {
  "version": 1,
  "categories": [
-  {"id":"c01","order":1,"icon":"🧭","title":{"ar":"أساسيات الستيوارد","en":"Stewarding Fundamentals"},"description":{"ar":"الدور والمسؤوليات والعمليات اليومية ومعايير الأداء المهني.","en":"Role, responsibilities, daily operations and professional standards."}},
-  {"id":"c02","order":2,"icon":"🍽️","title":{"ar":"ماكينات غسيل الأطباق","en":"Dishwashing Equipment"},"description":{"ar":"أنواع الماكينات ومكوناتها وطريقة تشغيلها وتنظيفها.","en":"Machine types, components, operation and cleaning."}},
-  {"id":"c03","order":3,"icon":"🧪","title":{"ar":"السلامة الكيميائية","en":"Chemical Safety"},"description":{"ar":"التعرف على المواد وملصقاتها وقراءة الـSDS والتخزين والتعامل مع الانسكاب.","en":"Identifying products, labels, SDS, storage and spill response."}},
-  {"id":"c04","order":4,"icon":"🛡️","title":{"ar":"سلامة الغذاء وHACCP","en":"Food Safety & HACCP"},"description":{"ar":"التنظيف والتطهير، منع التلوث المتبادل، الاستلام والتخزين.","en":"Cleaning and sanitizing, cross-contamination, receiving and storage."}},
-  {"id":"c05","order":5,"icon":"🎪","title":{"ar":"المؤتمرات والمناسبات","en":"Banquet & Event Operations"},"description":{"ar":"تجهيز القاعات والبوفيهات وإدارة المناسبات المتزامنة.","en":"Banquet setup, buffets and simultaneous events."}},
-  {"id":"c06","order":6,"icon":"🧹","title":{"ar":"التنظيف والصيانة","en":"Cleaning & Maintenance"},"description":{"ar":"جداول التنظيف وقوائم المراجعة والعناية بالمعدات.","en":"Cleaning schedules, checklists and equipment care."}},
-  {"id":"c07","order":7,"icon":"👥","title":{"ar":"القيادة والإشراف","en":"Leadership & Supervision"},"description":{"ar":"إدارة الوردية وتوزيع المهام والتواصل وتقييم الأداء.","en":"Shift management, task allocation, communication and evaluation."}},
-  {"id":"c08","order":8,"icon":"🦺","title":{"ar":"الصحة والسلامة المهنية","en":"Occupational Health & Safety"},"description":{"ar":"السلامة في المكان والحريق والطوارئ وتبليغ الحوادث.","en":"Workplace safety, fire, emergencies and incident reporting."}}
+  {"id":"c01","order":1,"icon":"compass","title":{"ar":"أساسيات الستيوارد","en":"Stewarding Fundamentals"},"description":{"ar":"الدور والمسؤوليات والعمليات اليومية ومعايير الأداء المهني.","en":"Role, responsibilities, daily operations and professional standards."}},
+  {"id":"c02","order":2,"icon":"utensils","title":{"ar":"ماكينات غسيل الأطباق","en":"Dishwashing Equipment"},"description":{"ar":"أنواع الماكينات ومكوناتها وطريقة تشغيلها وتنظيفها.","en":"Machine types, components, operation and cleaning."}},
+  {"id":"c03","order":3,"icon":"flask-conical","title":{"ar":"السلامة الكيميائية","en":"Chemical Safety"},"description":{"ar":"التعرف على المواد وملصقاتها وقراءة الـSDS والتخزين والتعامل مع الانسكاب.","en":"Identifying products, labels, SDS, storage and spill response."}},
+  {"id":"c04","order":4,"icon":"shield-check","title":{"ar":"سلامة الغذاء وHACCP","en":"Food Safety & HACCP"},"description":{"ar":"التنظيف والتطهير، منع التلوث المتبادل، الاستلام والتخزين.","en":"Cleaning and sanitizing, cross-contamination, receiving and storage."}},
+  {"id":"c05","order":5,"icon":"party-popper","title":{"ar":"المؤتمرات والمناسبات","en":"Banquet & Event Operations"},"description":{"ar":"تجهيز القاعات والبوفيهات وإدارة المناسبات المتزامنة.","en":"Banquet setup, buffets and simultaneous events."}},
+  {"id":"c06","order":6,"icon":"spray-can","title":{"ar":"التنظيف والصيانة","en":"Cleaning & Maintenance"},"description":{"ar":"جداول التنظيف وقوائم المراجعة والعناية بالمعدات.","en":"Cleaning schedules, checklists and equipment care."}},
+  {"id":"c07","order":7,"icon":"users","title":{"ar":"القيادة والإشراف","en":"Leadership & Supervision"},"description":{"ar":"إدارة الوردية وتوزيع المهام والتواصل وتقييم الأداء.","en":"Shift management, task allocation, communication and evaluation."}},
+  {"id":"c08","order":8,"icon":"hard-hat","title":{"ar":"الصحة والسلامة المهنية","en":"Occupational Health & Safety"},"description":{"ar":"السلامة في المكان والحريق والطوارئ وتبليغ الحوادث.","en":"Workplace safety, fire, emergencies and incident reporting."}}
  ]
 }
