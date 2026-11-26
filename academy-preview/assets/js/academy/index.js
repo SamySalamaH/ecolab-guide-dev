@@ -15,6 +15,7 @@ import { loadAcademyData, resolveQuestions, publishedLessons } from './data.js';
 import * as store from './store.js';
 import { buildPlayer } from './video.js';
 import { mountQuiz } from './quiz.js';
+import { icon, hasIcon } from './icons.js';
 
 let root = null;
 let data = null;
@@ -83,7 +84,7 @@ function renderHome() {
       h('a', { href: '#academy-courses', class: 'btn btn--ghost', 'data-act': 'jump' }, [t.explore])
     ]),
     last && data.lessons.find((l) => l.id === last.lessonId)
-      ? h('p', {}, [a(link({ v: 'lesson', l: last.lessonId }), 'academy-link', ['↩ ' + t.resume])]) : ''
+      ? h('p', {}, [a(link({ v: 'lesson', l: last.lessonId }), 'academy-link', [icon('rotate-ccw', { size: 16 }), ' ' + t.resume])]) : ''
   ].filter(Boolean));
 
   const counts = {};
@@ -93,7 +94,7 @@ function renderHome() {
     h('div', { class: 'academy-grid' }, data.categories.map((c) => {
       const n = counts[c.id] || 0;
       return h('button', { type: 'button', class: 'academy-cat', 'data-act': 'cat', 'data-cat': c.id }, [
-        h('span', { class: 'academy-cat__icon', 'aria-hidden': 'true' }, [c.icon || '📘']),
+        h('span', { class: 'academy-cat__icon', 'aria-hidden': 'true' }, [icon(hasIcon(c.icon) ? c.icon : 'book-open', { size: 26 })]),
         h('strong', {}, [tr(c.title)]),
         h('span', { class: 'academy-muted' }, [tr(c.description)]),
         h('span', { class: n ? 'academy-badge' : 'academy-badge academy-badge--soon' }, [n ? `${n} ${t.coursesCount}` : t.soon])
@@ -171,8 +172,8 @@ function renderCourse(id) {
     c.objectives && c.objectives.ar ? h('section', {}, [h('h2', {}, [t.objectives]), h('ul', {}, c.objectives.ar.map((o) => h('li', {}, [o])))]) : '',
     h('section', {}, [h('h2', {}, [t.lessons]),
       h('ol', { class: 'academy-lessons' }, lessons.map((l) => h('li', {}, [
-        a(link({ v: 'lesson', l: l.id }), 'academy-lessonlink', [`${store.isCompleted(l.id) ? '✅ ' : ''}${tr(l.title)}`]),
-        store.isFavorite(l.id) ? h('span', { 'aria-label': t.favorites }, [' ★']) : ''
+        a(link({ v: 'lesson', l: l.id }), 'academy-lessonlink', [store.isCompleted(l.id) ? icon('circle-check', { size: 18, cls: 'academy-icon--ok' }) : '', ' ' + tr(l.title)]),
+        store.isFavorite(l.id) ? h('span', { class: 'academy-fav', role: 'img', 'aria-label': t.favMark }, [icon('star', { size: 16 })]) : ''
       ].filter(Boolean))))]),
     quiz ? h('section', {}, [h('h2', {}, [t.courseQuiz]),
       qr ? h('p', { class: 'academy-muted' }, [`${t.score}: ${qr.score}/${qr.total} (${qr.percent}%)`]) : '',
@@ -206,10 +207,12 @@ function renderLesson(id) {
       h('p', { class: 'academy-muted' }, [`${tr(c.title)} · ${i + 1}/${siblings.length}`]),
       h('h1', {}, [tr(l.title)])
     ]),
-    buildPlayer(l.video, l.subtitles, t, tr(l.title)),
+    h('p', { class: 'academy-ctype' }, [icon(({ 'real-video': 'video', 'ai-video': 'sparkles', text: 'file-text', mixed: 'layers' })[l.contentType] || 'file-text', { size: 16 }), ' ' + (t.ctype[l.contentType] || '')]),
+    buildPlayer(l.video, l.subtitles, t, tr(l.title), l.contentType),
+    l.contentType === 'ai-video' && l.video ? h('p', { class: 'academy-muted' }, [t.aiVideoNote]) : '',
     h('div', { class: 'academy-actions' }, [
-      h('button', { type: 'button', class: 'btn ' + (done ? 'btn--ghost' : 'btn--primary'), 'data-act': 'done', 'data-lesson': l.id, 'aria-pressed': done ? 'true' : 'false' }, [done ? '✅ ' + t.undo : t.markDone]),
-      h('button', { type: 'button', class: 'btn btn--ghost', 'data-act': 'fav', 'data-lesson': l.id, 'aria-pressed': fav ? 'true' : 'false' }, [fav ? '★ ' + t.unfav : '☆ ' + t.fav])
+      h('button', { type: 'button', class: 'btn ' + (done ? 'btn--ghost' : 'btn--primary'), 'data-act': 'done', 'data-lesson': l.id, 'aria-pressed': done ? 'true' : 'false' }, [icon('circle-check', { size: 18 }), ' ' + (done ? t.undo : t.markDone)]),
+      h('button', { type: 'button', class: 'btn btn--ghost', 'data-act': 'fav', 'data-lesson': l.id, 'aria-pressed': fav ? 'true' : 'false' }, [icon('star', { size: 18, cls: fav ? 'academy-icon--fill' : '' }), ' ' + (fav ? t.unfav : t.fav)])
     ]),
     h('div', { ...ar, class: 'academy-body' }, [
       l.objectives && l.objectives.ar ? section(t.objectives, h('ul', {}, l.objectives.ar.map((x) => h('li', {}, [x])))) : '',
@@ -259,7 +262,7 @@ function renderProgress() {
     h('p', {}, [`${t.lastActivity}: ${s.activity ? new Date(s.activity).toLocaleString(lang === 'ar' ? 'ar-EG' : 'en-GB') : t.none}`]),
     h('section', {}, [h('h2', {}, [t.courses]), courses.length ? h('div', { class: 'academy-grid' }, courses.map(courseCard)) : h('p', { class: 'academy-empty' }, [t.noCourses])]),
     h('section', {}, [h('h2', {}, [t.quizResults]), qrs.length
-      ? h('ul', {}, qrs.map(([id, r]) => { const q = data.quizzes.find((x) => x.id === id); return h('li', {}, [`${tr(q.title)}: ${r.score}/${r.total} (${r.percent}%) ${r.passed ? '✅' : ''}`]); }))
+      ? h('ul', {}, qrs.map(([id, r]) => { const q = data.quizzes.find((x) => x.id === id); return h('li', {}, [`${tr(q.title)}: ${r.score}/${r.total} (${r.percent}%)`, r.passed ? icon('circle-check', { size: 16, cls: 'academy-icon--ok' }) : '']); }))
       : h('p', { class: 'academy-muted' }, [t.none])]),
     h('section', {}, [h('h2', {}, [t.favorites]), favs.length
       ? h('ul', {}, favs.map((l) => h('li', {}, [a(link({ v: 'lesson', l: l.id }), 'academy-link', [tr(l.title)])])))

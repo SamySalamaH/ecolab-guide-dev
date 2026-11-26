@@ -1,3 +1,4 @@
+import { icon } from './icons.js';
 /**
  * quiz.js — محرّك اختبارات قابل لإعادة الاستخدام (اختيار من متعدد، إجابة واحدة).
  * لا يكشف الإجابة قبل التسليم. نتيجة محلية فقط، وليست شهادة مهنية.
@@ -75,7 +76,7 @@ export function mountQuiz(container, quiz, questions, t, onDone) {
     const h = document.createElement('h3');
     h.textContent = `${t.score}: ${score} / ${total} (${Math.round((score / total) * 100)}%)`;
     const p = document.createElement('p');
-    p.textContent = passed ? t.passed : t.failed.replace('{n}', String(quiz.passPercent));
+    p.append(icon(passed ? 'badge-check' : 'info', { size: 20 }), document.createTextNode(' ' + (passed ? t.passed : t.failed.replace('{n}', String(quiz.passPercent)))));
     p.className = passed ? 'academy-quiz__pass' : 'academy-quiz__fail';
     box.append(h, p);
     const note = document.createElement('p');
@@ -88,7 +89,7 @@ export function mountQuiz(container, quiz, questions, t, onDone) {
       const correct = q.options.find((o) => o.correct);
       const ok = chosen && chosen.correct;
       const title = document.createElement('strong');
-      title.textContent = `${ok ? '✅' : '❌'} ${qi + 1}. ${q.text}`;
+      title.append(icon(ok ? 'circle-check' : 'circle-x', { size: 18, cls: ok ? 'academy-icon--ok' : 'academy-icon--bad' }), document.createTextNode(` ${ok ? t.correct : t.wrong} · ${qi + 1}. ${q.text}`));
       const a1 = document.createElement('p');
       a1.textContent = `${t.yourAnswer}: ${chosen ? chosen.text : '-'}`;
       item.append(title, a1);

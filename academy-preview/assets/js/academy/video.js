@@ -23,23 +23,32 @@ export function validateVideo(video, subtitles = []) {
   return { ok: false, reason: 'unsupported-type' };
 }
 
+import { icon } from './icons.js';
+
 /** Builds the player node. Nothing loads until the learner presses play. */
-export function buildPlayer(video, subtitles, labels, title) {
+export function buildPlayer(video, subtitles, labels, title, contentType = 'text') {
   const wrap = document.createElement('div');
   wrap.className = 'academy-video';
   const res = validateVideo(video, subtitles);
-  if (!res.ok) {
+  const msg = (head, sub, ic) => {
     wrap.classList.add('academy-video--empty');
-    const p = document.createElement('p');
-    p.className = 'academy-video__msg';
-    p.textContent = res.reason === 'none' ? labels.noVideo : labels.badVideo;
-    wrap.append(p);
+    const box = document.createElement('div'); box.className = 'academy-video__empty';
+    const p1 = document.createElement('strong'); p1.textContent = head;
+    box.append(icon(ic, { size: 36 }), p1);
+    if (sub) { const p2 = document.createElement('span'); p2.className = 'academy-muted'; p2.textContent = sub; box.append(p2); }
+    wrap.replaceChildren(box);
+  };
+  if (!res.ok) {
+    if (res.reason === 'none') {
+      if (contentType === 'text') msg(labels.textOnly, labels.textOnlySub, 'file-text');
+      else msg(labels.noVideo, labels.noVideoSub, 'clapperboard');
+    } else msg(labels.badVideo, labels.noVideoSub, 'triangle-alert');
     return wrap;
   }
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'academy-video__play btn btn--primary';
-  btn.textContent = labels.play;
+  btn.append(icon('play', { size: 18 }), document.createTextNode(' ' + labels.play));
   btn.addEventListener('click', () => {
     let el;
     if (res.kind === 'youtube') {
@@ -60,9 +69,10 @@ export function buildPlayer(video, subtitles, labels, title) {
         tr.kind = 'subtitles'; tr.src = t.src; tr.srclang = t.lang; tr.label = t.label || t.lang;
         el.append(tr);
       });
-      el.addEventListener('error', () => { wrap.replaceChildren(Object.assign(document.createElement('p'), { className: 'academy-video__msg', textContent: labels.badVideo })); });
+      el.addEventListener('error', () => { msg(labels.badVideo, labels.noVideoSub, 'triangle-alert'); });
     }
     wrap.replaceChildren(el);
+    wrap.classList.add('academy-video--playing');
   });
   wrap.append(btn);
   return wrap;

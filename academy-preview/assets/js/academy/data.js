@@ -28,6 +28,8 @@ export function validate(raw) {
     if (!ok) warnings.push('bad lesson ' + (l && l.id));
     return ok;
   });
+  const CT = ['real-video', 'ai-video', 'text', 'mixed'];
+  lessons.forEach((l) => { if (!CT.includes(l.contentType)) { if (l.contentType) warnings.push('bad contentType ' + l.id); l.contentType = l.video ? 'mixed' : 'text'; } });
   const lessonById = new Map(lessons.map((l) => [l.id, l]));
 
   const courses = arr(raw.courses).filter((c) => {
