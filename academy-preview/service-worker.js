@@ -22,7 +22,7 @@
  * بدلاً من الاستمرار في تقديم نسخة قديمة من الكاش للأبد.
  * @type {string}
  */
-const CACHE_VERSION = 'academy-preview-v1';
+const CACHE_VERSION = 'academy-preview-v2';
 
 /** أسماء الكاش المشتقة من رقم الإصدار — كاش واحد لكل شيء لتبسيط الإدارة. */
 const CACHE_NAME = `${CACHE_VERSION}-shell`;
@@ -52,6 +52,7 @@ const APP_SHELL_FILES = [
   './assets/js/education.js',
   './assets/js/academy/index.js',
   './assets/js/academy/i18n.js',
+  './assets/js/academy/icons.js',
   './assets/js/academy/data.js',
   './assets/js/academy/store.js',
   './assets/js/academy/video.js',
