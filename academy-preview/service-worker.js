@@ -22,7 +22,7 @@
  * بدلاً من الاستمرار في تقديم نسخة قديمة من الكاش للأبد.
  * @type {string}
  */
-const CACHE_VERSION = 'academy-preview-v4';
+const CACHE_VERSION = 'academy-preview-v5';
 
 /** أسماء الكاش المشتقة من رقم الإصدار — كاش واحد لكل شيء لتبسيط الإدارة. */
 const CACHE_NAME = `${CACHE_VERSION}-shell`;
