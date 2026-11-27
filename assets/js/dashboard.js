@@ -74,7 +74,8 @@ function buildQuickActions() {
     { icon: '📚', label: 'الأكاديمية', view: 'education' },
     { icon: '🚨', label: 'الطوارئ', view: 'safety' },
     { icon: '🤖', label: 'المساعد', view: 'ai' },
-    { icon: '⚙️', label: 'الإعدادات', view: 'settings' }
+    { icon: '⚙️', label: 'الإعدادات', view: 'settings' },
+    { icon: '📝', label: 'اختبر نفسك', href: 'quizzes-preview/' }
   ];
 
   return createElement('div', {}, [
@@ -83,7 +84,7 @@ function buildQuickActions() {
       'div',
       { class: 'quick-actions' },
       actions.map((a) =>
-        createElement('button', { class: 'quick-action', type: 'button', 'data-goto': a.view }, [
+        createElement(a.href ? 'a' : 'button', a.href ? { class: 'quick-action', href: a.href, style: 'text-decoration:none;color:inherit' } : { class: 'quick-action', type: 'button', 'data-goto': a.view }, [
           createElement('span', { class: 'quick-action__icon', 'aria-hidden': 'true' }, [a.icon]),
           createElement('span', {}, [a.label])
         ])
